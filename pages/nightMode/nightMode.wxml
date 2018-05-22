@@ -1,0 +1,24 @@
+<!--pages/nightMode/nightMode.wxml-->
+<view class='container'>
+  <view class='night-mode'>
+    <view class="sec-block">
+      <canvas class='canvas' canvas-id='sec-canvas'></canvas>
+    </view>
+    <view class='feature-list'>
+      <view class='feature-item'>
+        <image src='../img/feature1.png'></image>
+        <text>热能技术</text>
+      </view>
+      <view class='feature-item'>
+        <image src='../img/feature2.png'></image>
+        <text>多光谱红光</text>
+      </view>
+      <view class='feature-item'>
+        <image src='../img/feature3.png'></image>
+        <text>T-SONIC</text>
+      </view>
+    </view>
+    <image class='mode-img' src='../img/nightMode1.png'></image>
+    <view class='mode-tips'><text>T-sonic打开浸润通道,振动按摩并密集滋养肌肤。</text></view>
+  </view>
+</view>

@@ -8,6 +8,6 @@
     </block>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+    <button class="btn" bindtap='pair'>进入我的UFO</button>
   </view>
 </view>

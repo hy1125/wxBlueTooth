@@ -5,6 +5,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  padding: 20rpx;
   box-sizing: border-box;
 } 
+.btn{
+  width: 90%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: linear-gradient(to right,#f5129c,#ee7dc2);
+  background: -webkit-linear-gradient(to right,#f5129c,#ee7dc2);
+  color: #fff;
+}

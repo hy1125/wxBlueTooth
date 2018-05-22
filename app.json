@@ -2,22 +2,26 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/demo/demo"
+    "pages/demo/demo",
+    "pages/pair/pair",
+    "pages/nightMode/nightMode"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#f5129c",
+    "navigationBarTitleText": "智能护肤",
+    "navigationBarTextStyle": "#fff"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页"
-    },
-    {
-      "pagePath": "pages/demo/demo",
-      "text": "示例"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/nightMode/nightMode",
+        "text": "示例"
+      }
+    ]
   }
 }

@@ -1,0 +1,4 @@
+<!--pages/pair/pair.wxml-->
+<view class="container">
+  <text >蓝牙配对仪器中...</text>
+</view>

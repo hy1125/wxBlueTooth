@@ -50,5 +50,10 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  pair:function(){
+    wx.redirectTo({
+      url: '../pair/pair'
+    })
   }
 })
