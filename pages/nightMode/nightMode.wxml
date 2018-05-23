@@ -1,8 +1,8 @@
 <!--pages/nightMode/nightMode.wxml-->
 <view class='container'>
-  <view class='night-mode'>
+  <view wx:if="{{mode == '1'}}" class='night-mode mode1'>
     <view class="sec-block">
-      <canvas class='canvas' canvas-id='sec-canvas'></canvas>
+      <canvas class='canvas' canvas-id='sec-canvas1'></canvas>
     </view>
     <view class='feature-list'>
       <view class='feature-item'>
@@ -20,5 +20,27 @@
     </view>
     <image class='mode-img' src='../img/nightMode1.png'></image>
     <view class='mode-tips'><text>T-sonic打开浸润通道,振动按摩并密集滋养肌肤。</text></view>
+  </view>
+
+  <view wx:else class='night-mode mode2'>
+    <view class="sec-block">
+      <canvas class='canvas' canvas-id='sec-canvas2'></canvas>
+    </view>
+    <view class='feature-list'>
+      <view class='feature-item'>
+        <image src='../img/feature2.png'></image>
+        <text>多光谱红光</text>
+      </view>
+      <view class='feature-item'>
+        <image src='../img/feature3.png'></image>
+        <text>T-SONIC</text>
+      </view>
+    </view>
+    <image class='mode-img' src='../img/nightMode2.png'></image>
+    <view class='mode-tips'><text>焕颜之旅即将结束，UFO正在缓慢减速，请放心使用。</text></view>
+  </view>
+  <view wx:if="{{isShowModeBtn}}" class='mode-btn-block'>
+    <button class='btn' bindtap='stopSkinCare'>结束护肤</button>
+    <button class='btn' bindtap='reuseSkinCare'>再次使用</button>
   </view>
 </view>

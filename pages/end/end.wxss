@@ -1,0 +1,13 @@
+/* pages/end/end.wxss */
+.content{
+  width: 100%;
+}
+.content image{
+  width: 100%;
+  margin-bottom: 40rpx;
+}
+.content text{
+  width: 100%;
+  display: block;
+  text-align: center;
+}

@@ -1,4 +1,4 @@
-// pages/pair/pair.js
+// pages/ready/onready.js
 Page({
 
   /**
@@ -12,11 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '蓝牙配对仪器中...',
-      mask:true
-    })
-    
+  
   },
 
   /**

@@ -1,0 +1,5 @@
+<!--pages/end/end.wxml-->
+<view class='content'>
+  <image src='../img/end.png'></image>
+  <text>护肤完成</text>
+</view>

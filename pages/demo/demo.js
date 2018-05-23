@@ -4,6 +4,7 @@ Page({
   data: {
     status: "",
     sousuo: "",
+    msg: "",
     connectedDeviceId: "", //已连接设备uuid  
     services: "", // 连接设备的服务  
     characteristics: "",   // 连接设备的状态值  

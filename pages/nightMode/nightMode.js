@@ -5,14 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    mode:'1',
+    isShowModeBtn:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.setKeepScreenOn({
+      keepScreenOn: true
+    })
   },
 
   /**
@@ -20,10 +23,10 @@ Page({
    */
   onReady: function () {
     // 使用 wx.createContext 获取绘图上下文 context
-    var context = wx.createCanvasContext('sec-canvas'),
-      rad = Math.PI * 2 / 60, speed = 60;
+    var rad = Math.PI * 2 / 30, speed = 30,mode = 1, that = this;
+    var context = wx.createCanvasContext('sec-canvas1');
 
-    function drawCircle(n){
+    function drawCircle(context,n) {
       context.save();
       context.beginPath();
       context.setStrokeStyle("#f5129c");
@@ -46,7 +49,7 @@ Page({
       context.beginPath();
       context.setStrokeStyle("#f5129c");
       context.setLineWidth(6);
-      context.arc(28, 28, 25, -Math.PI / 2 + n * rad, -Math.PI / 2,  true);
+      context.arc(28, 28, 25, -Math.PI / 2 + n * rad, -Math.PI / 2, true);
       context.stroke();
       context.closePath();
       context.restore();
@@ -57,56 +60,56 @@ Page({
     //动画循环
     (function drawFrame() {
       context.clearRect(0, 0, 60, 60);
-      drawCircle(speed);
-      if (speed < 1) return;//TODO
-      speed -= 1;
-      setTimeout(function(){
-        drawFrame();
-      },1000);
+      drawCircle(context, speed);
+      if (speed < 1) {
+        switchMode(mode);//TODO
+        return;
+      } else {
+        speed -= 1;
+        setTimeout(function () {
+          drawFrame();
+        }, 1000);
+      }
     }());
 
+    function switchMode(mode){
+      if(mode == 1){
+        that.setData({
+          mode:2
+        });
+        var context = wx.createCanvasContext('sec-canvas2');
+        rad = Math.PI * 2 / 60;
+        speed = 60;
+        mode = 2;
+        //动画循环
+        (function drawFrame() {
+          context.clearRect(0, 0, 60, 60);
+          drawCircle(context, speed);
+          if (speed < 1) {
+            that.setData({
+              isShowModeBtn:true
+            });
+            return;
+          } else {
+            speed -= 1;
+            setTimeout(function () {
+              drawFrame();
+            }, 1000);
+          }
+        }());
+      }
+    }
     
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  stopSkinCare : function(){
+    wx.redirectTo({
+      url: '../end/end'
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  reuseSkinCare: function () {
+    wx.redirectTo({
+      url: '../onready/onready'
+    })
   }
+
 })

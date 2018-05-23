@@ -14,7 +14,6 @@ page{
 .night-mode{
   position: relative;
   width: 100%;
-  height: 100%;
   background: #fff;
   border-radius: 20rpx;
   -webkit-border-radius: 20rpx;
@@ -70,4 +69,12 @@ page{
   display: block;
   text-align: center;
   font-size: 12px;
+}
+.mode-btn-block{
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40rpx;
 }

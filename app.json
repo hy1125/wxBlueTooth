@@ -4,7 +4,9 @@
     "pages/logs/logs",
     "pages/demo/demo",
     "pages/pair/pair",
-    "pages/nightMode/nightMode"
+    "pages/nightMode/nightMode",
+    "pages/end/end",
+    "pages/onready/onready"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,7 +21,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/nightMode/nightMode",
+        "pagePath": "pages/demo/demo",
         "text": "示例"
       }
     ]
