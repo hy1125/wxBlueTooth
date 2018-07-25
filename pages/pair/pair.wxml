@@ -1,4 +1,30 @@
 <!--pages/pair/pair.wxml-->
 <view class="container">
-  <text >蓝牙配对仪器中...</text>
+  <view class='pair-box'>
+    <view class='pair-loading'>
+      <image class='loading-icon' src='../img/loading.png'></image>
+      <image class='search-icon' src='../img/search.png'></image>
+    </view>
+    <text class='pair-tips'>正在搜索设备...</text>
+    <text>打开手机蓝牙，请将设备开启并靠近手机</text>
+    <image class='guide-icon' bindtap='showGuide' src='../img/guide.png'></image>
+  </view>
 </view>
+
+<view class='guide-box' wx:if="{{isShow}}">
+  <view class='step1'>
+    <image src='../img/step1.png'></image>
+    <text class='step-tips'>STEP1</text>
+    <text>打开手机蓝牙</text>
+  </view>
+  <text class='next'>↓</text>
+  <view class='step2'>
+    <image src='../img/step2.png'></image>
+    <text class='step-tips'>STEP2</text>
+    <text>长按设备三秒钟</text>
+    <text>设备整个圆环开始灯光闪烁，</text>
+    <text>仪器将自动开始配对</text>
+  </view>
+  <button bindtap='closeGuide'>我知道了</button>
+</view>
+

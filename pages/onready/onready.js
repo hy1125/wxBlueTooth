@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    count: "",
+    isDisabled: false
   },
 
   /**
@@ -13,6 +14,32 @@ Page({
    */
   onLoad: function (options) {
   
+  },
+  startSkinCare: function(){
+    var time = 10;
+    var that = this;
+    that.setData({
+      isDisabled: true
+    });
+    (function countDown() {
+      if (time < 1) {
+        that.setData({
+          count: ""
+        });
+        wx.navigateTo({
+          url: '../nightMode/nightMode'
+        });
+        return;
+      } else {
+        that.setData({
+          count: time
+        });
+        time -= 1;
+        setTimeout(function () {
+          countDown();
+        }, 1000);
+      }
+    }());
   },
 
   /**

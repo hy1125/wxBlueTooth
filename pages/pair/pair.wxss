@@ -1,1 +1,144 @@
 /* pages/pair/pair.wxss */
+page{
+  display: block;
+  min-height: 100%;
+  position: relative;
+}
+.container{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+.pair-box{
+  width: 80%;
+  height: auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  display:flex;
+  display:-webkit-flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+}
+.pair-box>text{
+  font-size: 13px;
+  color: #666;
+}
+.pair-box .pair-tips{
+  font-size: 22px;
+  color: #f04aaf;
+  margin-bottom: 10px;
+}
+.pair-loading{
+  width: 200px;
+  height: 200px;
+  border: 1px dotted #f04aaf;
+  position: relative;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.pair-loading .loading-icon{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -75px;
+  animation: rotating 1s linear infinite;
+  -webkit-animation: rotating 1s linear infinite;
+}
+.pair-loading .search-icon{
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+@keyframes rotating{
+  to{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  from{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotating{
+  to{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  from{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+.guide-box{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 10;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 0 15%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.guide-box .step1,.guide-box .step2{
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.guide-box image{
+  width: 90px;
+  height: 90px;
+  display: block;
+  margin-bottom: 10px;
+}
+.guide-box text{
+  font-size: 15px;
+  opacity: 0.8;
+}
+.guide-box text.step-tips{
+  font-weight: bold;
+  margin-bottom: 5px;
+  opacity: 1;
+}
+.guide-box button{
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  color: #fff;
+}
+.guide-box .next{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.guide-icon{
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+}
