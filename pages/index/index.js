@@ -52,8 +52,13 @@ Page({
     })
   },
   pair:function(){
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../pair/pair'
+    })
+  },
+  ready:function(){
+    wx.navigateTo({
+      url: '../onready/onready'
     })
   }
 })

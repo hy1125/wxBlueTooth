@@ -5,18 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    isShow: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '蓝牙配对仪器中...',
-      mask:true
-    })
+    // wx.showLoading({
+    //   title: '蓝牙配对仪器中...',
+    //   mask:true
+    // })
     
+  },
+  showGuide: function () {
+    this.setData({ isShow: true});
+  },
+  closeGuide: function () {
+    this.setData({ isShow: false});
   },
 
   /**

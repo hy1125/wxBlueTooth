@@ -12,7 +12,11 @@
   width: 90%;
   height: 100rpx;
   line-height: 100rpx;
-  background: linear-gradient(to right,#f5129c,#ee7dc2);
-  background: -webkit-linear-gradient(to right,#f5129c,#ee7dc2);
+  background: linear-gradient(to right,#f04aaf,#ee7dc2);
+  background: -webkit-linear-gradient(to right,#f04aaf,#ee7dc2);
+  color: #fff;
+}
+.btn[disabled]{
+  opacity: 0.6;
   color: #fff;
 }

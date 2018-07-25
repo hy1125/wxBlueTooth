@@ -107,7 +107,7 @@ Page({
     })
   },
   reuseSkinCare: function () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../onready/onready'
     })
   }

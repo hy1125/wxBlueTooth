@@ -1,2 +1,15 @@
 <!--pages/ready/onready.wxml-->
-<text>pages/ready/onready.wxml</text>
+<image class='index-bg' src='../img/indexBg.png'></image>
+<view class='container'>
+  <view class="userinfo">
+    <text class="tips">已连接设备</text>
+  </view>
+  <view class='device-icon'>
+    <image src='../img/device.png'></image>
+    <text class='count-down'>{{count}}</text>
+  </view>
+  <text class='ready-tips'>护肤前请将面膜放置在设备上并扣好</text>
+</view>
+<view class="usermotto">
+  <button class="btn" bindtap='startSkinCare' disabled='{{isDisabled}}'>启动护肤</button>
+</view>
