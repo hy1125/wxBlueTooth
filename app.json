@@ -15,14 +15,26 @@
     "navigationBarTextStyle": "#fff"
   },
   "tabBar": {
+    "color": "#999",
+    "selectedColor": "#f04aaf",
     "list": [
       {
         "pagePath": "pages/index/index",
+        "iconPath": "pages/img/index.png",
+        "selectedIconPath": "pages/img/index-active.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/demo/demo",
+        "iconPath": "pages/img/shopping.png",
+        "selectedIconPath": "pages/img/shopping-active.png",
         "text": "示例"
+      },
+      {
+        "pagePath": "pages/end/end",
+        "iconPath": "pages/img/my.png",
+        "selectedIconPath": "pages/img/my-active.png",
+        "text": "我的"
       }
     ]
   }

@@ -51,6 +51,11 @@ Page({
       hasUserInfo: true
     })
   },
+  bindDevice: function () {
+    wx.navigateTo({
+      url: '../pair/pair'
+    })
+  },
   pair:function(){
     wx.navigateTo({
       url: '../pair/pair'
