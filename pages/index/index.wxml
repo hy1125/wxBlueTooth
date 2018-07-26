@@ -6,7 +6,7 @@
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
-    <text class="tips">未连接设备</text>
+    <text class="tips" bindtap='bindDevice'>未连接设备</text>
   </view>
   <image class='device-icon' src='../img/device.png'></image>
 </view>

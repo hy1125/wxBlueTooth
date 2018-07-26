@@ -68,13 +68,16 @@ page{
   margin: 0 20rpx;
 }
 .modeBtn{
-  border: 1px solid #333;
+  border: 1px solid #999;
   background: transparent;
-  color: #333;
+  color: #999;
   display: flex;
   display: -webkit-flex;
   justify-content: space-around;
   align-items: center;
+}
+.modeBtn::after{
+  border: none;
 }
 .modeBtn>image{
   width: 25px;
