@@ -108,7 +108,7 @@ Page({
   },
   reuseSkinCare: function () {
     wx.navigateTo({
-      url: '../onready/onready'
+      url: '../onready/onready?mode=nightMode'
     })
   }
 

@@ -11,7 +11,7 @@
   <image class='device-icon' src='../img/device.png'></image>
 </view>
   <view class="usermotto">
-    <button class="btn modeBtn" bindtap='pair'><image src='../img/dayMode.png'></image>日间护肤模式</button>
-    <button class="btn modeBtn" bindtap='ready'><image src='../img/nightMode.png'></image>夜间护肤模式</button>
+    <button class="btn modeBtn" data-mode='dayMode' bindtap='ready'><image src='../img/dayMode.png'></image>日间护肤模式</button>
+    <button class="btn modeBtn" data-mode='nightMode' bindtap='ready'><image src='../img/nightMode.png'></image>夜间护肤模式</button>
   </view>
 

@@ -18,7 +18,7 @@
         <text>T-SONIC</text>
       </view>
     </view>
-    <image class='mode-img' src='../img/nightMode1.png'></image>
+    <image mode='widthFix' class='mode-img' src='../img/nightMode1.png'></image>
     <view class='mode-tips'><text>T-sonic打开浸润通道,振动按摩并密集滋养肌肤。</text></view>
   </view>
 
@@ -36,7 +36,7 @@
         <text>T-SONIC</text>
       </view>
     </view>
-    <image class='mode-img' src='../img/nightMode2.png'></image>
+    <image mode='widthFix' class='mode-img' src='../img/nightMode2.png'></image>
     <view class='mode-tips'><text>焕颜之旅即将结束，UFO正在缓慢减速，请放心使用。</text></view>
   </view>
   <view wx:if="{{isShowModeBtn}}" class='mode-btn-block'>

@@ -61,9 +61,10 @@ Page({
       url: '../pair/pair'
     })
   },
-  ready:function(){
+  ready:function(e){
+    var mode = e.currentTarget.dataset.mode;
     wx.navigateTo({
-      url: '../onready/onready'
-    })
+      url: '../onready/onready?mode='+mode
+    });
   }
 })

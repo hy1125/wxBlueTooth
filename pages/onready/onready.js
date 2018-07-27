@@ -6,6 +6,7 @@ Page({
    */
   data: {
     count: "",
+    modeType: "",
     isDisabled: false
   },
 
@@ -13,7 +14,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    that.setData({
+      modeType: options.mode
+    });
   },
   startSkinCare: function(){
     var time = 10;
@@ -26,9 +30,15 @@ Page({
         that.setData({
           count: ""
         });
-        wx.navigateTo({
-          url: '../nightMode/nightMode'
-        });
+        if (that.data.modeType == "dayMode"){
+          wx.navigateTo({
+            url: '../dayMode/dayMode'
+          });
+        }else if(that.data.modeType == "nightMode"){
+          wx.navigateTo({
+            url: '../nightMode/nightMode'
+          });
+        }
         return;
       } else {
         that.setData({

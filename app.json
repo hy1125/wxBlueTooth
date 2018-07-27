@@ -28,13 +28,13 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/demo/demo",
+        "pagePath": "pages/shopping/shopping",
         "iconPath": "pages/img/shopping.png",
         "selectedIconPath": "pages/img/shopping-active.png",
-        "text": "示例"
+        "text": "商城"
       },
       {
-        "pagePath": "pages/dayMode/dayMode",
+        "pagePath": "pages/my/my",
         "iconPath": "pages/img/my.png",
         "selectedIconPath": "pages/img/my-active.png",
         "text": "我的"
