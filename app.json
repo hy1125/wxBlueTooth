@@ -8,7 +8,8 @@
     "pages/end/end",
     "pages/onready/onready",
     "pages/shopping/shopping",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/dayMode/dayMode"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,7 +34,7 @@
         "text": "示例"
       },
       {
-        "pagePath": "pages/my/my",
+        "pagePath": "pages/dayMode/dayMode",
         "iconPath": "pages/img/my.png",
         "selectedIconPath": "pages/img/my-active.png",
         "text": "我的"
