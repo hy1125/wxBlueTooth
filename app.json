@@ -6,7 +6,9 @@
     "pages/pair/pair",
     "pages/nightMode/nightMode",
     "pages/end/end",
-    "pages/onready/onready"
+    "pages/onready/onready",
+    "pages/shopping/shopping",
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,7 +33,7 @@
         "text": "示例"
       },
       {
-        "pagePath": "pages/end/end",
+        "pagePath": "pages/my/my",
         "iconPath": "pages/img/my.png",
         "selectedIconPath": "pages/img/my-active.png",
         "text": "我的"

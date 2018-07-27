@@ -1,0 +1,4 @@
+<!--pages/shopping.wxml-->
+<view class='container'>
+  <image mode='widthFix' src='../img/comingSoon.png'></image>
+</view>

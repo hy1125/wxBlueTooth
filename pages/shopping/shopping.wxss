@@ -1,0 +1,6 @@
+/* pages/shopping.wxss */
+image{
+  width: 100%;
+  min-height: auto;
+  display: block;
+}
