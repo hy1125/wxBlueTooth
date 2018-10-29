@@ -8,7 +8,7 @@
     <image src='../img/device.png'></image>
     <text class='count-down'>{{count}}</text>
   </view>
-  <text class='ready-tips'>护肤前请将面膜放置在YOYO上并扣好</text>
+  <text class='ready-tips'>护肤前请将面膜放置在UFO上并扣好</text>
 </view>
 <view class="usermotto">
   <button class="btn" bindtap='startSkinCare' disabled='{{isDisabled}}'>启动护肤</button>

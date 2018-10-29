@@ -6,3 +6,22 @@
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
 </view>
+<view class='mine-block'>
+  <view class='mine-item' bindtap="mineItem1">
+    <image src='../img/mine_icon3.png'></image>
+    <text>面膜大全</text>
+  </view>
+  <view class='mine-item' bindtap="mineItem1">
+    <image src='../img/mine_icon2.png'></image>
+    <text>皮肤档案</text>
+  </view>
+  <view class='mine-item' bindtap="mineItem2">
+    <image src='../img/mine_icon1.png'></image>
+    <text>产品注册</text>
+  </view>
+</view>
+<view class='list-block'>
+  <navigator class='list-item' bindtap="checkVersion">检查新版本<image src='../img/rightCrow.png'></image></navigator>
+  <navigator class='list-item' url='../clause/clause?typeClause=1'>使用条款<image src='../img/rightCrow.png'></image></navigator>
+  <navigator class='list-item' url='../clause/clause?typeClause=2'>隐私条款<image src='../img/rightCrow.png'></image></navigator>
+</view>

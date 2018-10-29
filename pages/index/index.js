@@ -7,15 +7,14 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
+    // isBluetoothConnection: false,
+    isBluetoothConnection: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
+  
+  onLoad: function (options) {
+    var that = this;
+    // this.setData({ isBluetoothConnection: wx.getStorageSync('isConnected') || false});
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -53,7 +52,7 @@ Page({
   },
   bindDevice: function () {
     wx.navigateTo({
-      url: '../pair/pair'
+      url: '../pair/pair?mode=bindDevice'
     })
   },
   pair:function(){
@@ -62,9 +61,26 @@ Page({
     })
   },
   ready:function(e){
+    var that = this;
     var mode = e.currentTarget.dataset.mode;
-    wx.navigateTo({
-      url: '../onready/onready?mode='+mode
-    });
+
+    if (mode == "dayMode") {
+      wx.setStorageSync('modeType', "dayMode");
+    } else if (mode == "nightMode") {
+      wx.setStorageSync('modeType', "nightMode");
+    }
+    if (that.data.isBluetoothConnection){
+      wx.navigateTo({
+        url: '../onready/onready?mode='+mode
+      });
+    }else{
+      wx.navigateTo({
+        url: '../pair/pair?mode=' + mode
+      })
+    }
+  },
+  onShow: function(){
+    console.log("index==onShow方法", wx.getStorageSync('isConnected') || false);
+    this.setData({ isBluetoothConnection: wx.getStorageSync('isConnected') || false });
   }
 })

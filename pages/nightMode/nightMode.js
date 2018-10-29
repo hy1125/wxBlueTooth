@@ -1,4 +1,5 @@
 // pages/nightMode/nightMode.js
+const app = getApp()
 Page({
 
   /**
@@ -6,6 +7,16 @@ Page({
    */
   data: {
     mode:'1',
+    modeTipsIndex1: '0',
+    modeTipsIndex2: '0',
+    tips: {
+      mode1:['T-sonic打开浸润通道,振动按摩并密集滋养肌肤。',
+        'T-sonic打开浸润通道,振动按摩并密集滋养肌肤。2',
+        'T-sonic打开浸润通道,振动按摩并密集滋养肌肤。3'],
+      mode2: ['焕颜之旅即将结束，UFO正在缓慢减速，请放心使用。4',
+        '焕颜之旅即将结束，UFO正在缓慢减速，请放心使用。5',
+        '焕颜之旅即将结束，UFO正在缓慢减速，请放心使用。6']
+    },
     isShowModeBtn:false
   },
 
@@ -65,6 +76,16 @@ Page({
         switchMode(mode);//TODO
         return;
       } else {
+         //根据倒计时改变提示语
+        if (speed == 15){
+          that.setData({
+            modeTipsIndex1: '1',
+          })
+        }else if(speed == 2){
+          that.setData({
+            modeTipsIndex1: '2',
+          })
+        }
         speed -= 1;
         setTimeout(function () {
           drawFrame();
@@ -91,6 +112,16 @@ Page({
             });
             return;
           } else {
+            //根据倒计时改变提示语
+            if (speed == 15) {
+              that.setData({
+                modeTipsIndex2: '1',
+              })
+            } else if (speed == 2) {
+              that.setData({
+                modeTipsIndex2: '2',
+              })
+            }
             speed -= 1;
             setTimeout(function () {
               drawFrame();
@@ -104,12 +135,17 @@ Page({
   stopSkinCare : function(){
     wx.redirectTo({
       url: '../end/end'
-    })
+    });
+    app.writeBLECharacteristicValue(app.globalData.deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
   },
   reuseSkinCare: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../onready/onready?mode=nightMode'
     })
+  },
+  onHide: function(){
+    var deviceId = wx.getStorageSync('deviceId') || '';
+    app.writeBLECharacteristicValue(deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
   }
 
 })

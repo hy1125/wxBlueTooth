@@ -1,15 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/demo/demo",
     "pages/pair/pair",
     "pages/nightMode/nightMode",
     "pages/end/end",
     "pages/onready/onready",
     "pages/shopping/shopping",
     "pages/my/my",
-    "pages/dayMode/dayMode"
+    "pages/dayMode/dayMode",
+    "pages/clause/clause",
+    "pages/registerProduct/registerProduct"
   ],
   "window": {
     "backgroundTextStyle": "light",

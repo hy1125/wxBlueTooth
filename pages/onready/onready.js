@@ -1,4 +1,5 @@
 // pages/ready/onready.js
+const app = getApp()
 Page({
 
   /**
@@ -7,7 +8,9 @@ Page({
   data: {
     count: "",
     modeType: "",
-    isDisabled: false
+    deviceId: '',
+    isDisabled: false,
+    bleConnect: true
   },
 
   /**
@@ -16,40 +19,73 @@ Page({
   onLoad: function (options) {
     var that = this;
     that.setData({
-      modeType: options.mode
+      modeType: wx.getStorageSync('modeType') || '',
+      deviceId: wx.getStorageSync('deviceId') || ''
     });
+    console.log("onLoad===>2", wx.getStorageSync('deviceId'));
+    console.log("onLoad===>24343", wx.getStorageSync('modeType'));
   },
   startSkinCare: function(){
     var time = 10;
     var that = this;
+    wx.onBLEConnectionStateChange(function (res) {
+      console.log("监听蓝牙连接", res);
+      that.setData({
+        bleConnect: res.connected
+      });
+      if (!res.connected) {
+        wx.showModal({
+          title: '提示',
+          content: '设备蓝牙连接已断开，请重新连接蓝牙',
+          showCancel: false,
+          success: function (res) {
+            wx.redirectTo({
+              url: '../pair/pair?mode=BLEConnectionStateChange'
+            });
+          }
+        });
+        return;
+      }
+    });
     that.setData({
       isDisabled: true
     });
-    (function countDown() {
-      if (time < 1) {
-        that.setData({
-          count: ""
-        });
-        if (that.data.modeType == "dayMode"){
-          wx.navigateTo({
-            url: '../dayMode/dayMode'
-          });
-        }else if(that.data.modeType == "nightMode"){
-          wx.navigateTo({
-            url: '../nightMode/nightMode'
-          });
-        }
-        return;
-      } else {
-        that.setData({
-          count: time
-        });
-        time -= 1;
-        setTimeout(function () {
-          countDown();
-        }, 1000);
+    
+    if (that.data.bleConnect){
+      console.log("===deviceId===>", that.data.deviceId);
+      console.log("===serviceId===>", app.globalData.serviceId);
+      console.log("===characteristicId===>", app.globalData.characteristicId);
+      if (that.data.modeType == "dayMode") {
+        app.writeBLECharacteristicValue(that.data.deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A581');
+      } else if (that.data.modeType == "nightMode") {
+        app.writeBLECharacteristicValue(that.data.deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A582');
       }
-    }());
+      (function countDown() {
+        if (time < 1) {
+          that.setData({
+            count: ""
+          });
+          if (that.data.modeType == "dayMode") {
+            wx.redirectTo({
+              url: '../dayMode/dayMode'
+            });
+          } else if (that.data.modeType == "nightMode") {
+            wx.redirectTo({
+              url: '../nightMode/nightMode'
+            });
+          }
+          return;
+        } else {
+          that.setData({
+            count: time
+          });
+          time -= 1;
+          setTimeout(function () {
+            countDown();
+          }, 1000);
+        }
+      }());
+    }
   },
 
   /**
@@ -70,7 +106,8 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    var deviceId = wx.getStorageSync('deviceId') || '';
+    app.writeBLECharacteristicValue(deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
   },
 
   /**

@@ -1,0 +1,13 @@
+<view class="container">
+  <view class='product-tips'>
+    <text class='product-welcome'>欢迎回来</text>
+    <text>您的产品已注册质保，如需履行质保，请至官网。</text>
+  </view>
+  <image mode='widthFix' class='device-icon' src='../img/product.png'></image>
+</view>
+<view class='quality-block'>
+  <!-- <image class='quality-icon' src='../img/device.png'></image> -->
+  <text class='tips'>目前APP仅支持具有蓝牙功能的FOREO仪器注册，如FOREO UFO。其他产品请至官网。</text>
+  <button class='btn' bindtap='registerProduct'>注册新仪器</button>
+</view>
+
