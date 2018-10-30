@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="lowBattery">
+      <image mode='widthFix' src='../img/lowBattery.png'></image>
+      <view class='lowBattery-tips'>
+        <text>设备电量低于25%</text>
+        <text>无法用小程序遥控启动护肤</text>
+        <text>请尽快为设备充电</text>
+      </view>
+      <button class="btn" bindtap='stopSkinCare'>关闭</button>
+  </view>
+</view>

@@ -1,3 +1,4 @@
+const app = getApp()
 Page({
 
   /**
@@ -5,6 +6,19 @@ Page({
    */
   data: {
     mode: '1',
+    modeTipsIndex1: '0',
+    modeTipsIndex2: '0',
+    tips: {
+      mode1: ['即将开启UFO焕颜之旅',
+        '使用UFO轻轻划过肌肤，将面膜精华均匀涂抹于面部。',
+        '温热功能正在为您打开毛孔，舒缓的肌肤已准备享受面部SPA。',
+        '请顺着肌肤纹理由里向外、由上至下轻轻推匀精华。',
+        'T-sonic打开浸润通道,振动按摩并密集滋养肌肤。'],
+      mode2: ['多光谱红光换活精华，修护日间损伤令肌肤弹力紧实。',
+        '嘴角、鼻翼、面颊等干燥区可以增加使用时间，淡化细纹。',
+        '请抬起下颚，由下至上为颈部进行护理。',
+        '焕颜之旅即将结束，UFO正在缓慢减速，请放心使用。']
+    },
     isShowModeBtn: false
   },
 
@@ -14,7 +28,25 @@ Page({
   onLoad: function (options) {
     wx.setKeepScreenOn({
       keepScreenOn: true
-    })
+    });
+    // 监听蓝牙连接
+    wx.onBLEConnectionStateChange(function (res) {
+      console.log("监听蓝牙连接", res);
+      if (!res.connected) {
+        wx.showModal({
+          title: '提示',
+          content: '设备蓝牙连接已断开，请重新连接蓝牙',
+          showCancel: false,
+          success: function (res) {
+            wx.removeStorageSync('isConnected');
+            wx.redirectTo({
+              url: '../pair/pair'
+            });
+          }
+        });
+        return;
+      }
+    });
   },
 
   /**
@@ -64,6 +96,24 @@ Page({
         switchMode(mode);//TODO
         return;
       } else {
+        //根据倒计时改变提示语
+        if (speed == 24) {
+          that.setData({
+            modeTipsIndex1: '1',
+          })
+        } else if (speed == 18) {
+          that.setData({
+            modeTipsIndex1: '2',
+          })
+        } else if (speed == 12) {
+          that.setData({
+            modeTipsIndex1: '3',
+          })
+        } else if (speed == 6) {
+          that.setData({
+            modeTipsIndex1: '4',
+          })
+        }
         speed -= 1;
         setTimeout(function () {
           drawFrame();
@@ -90,6 +140,21 @@ Page({
             });
             return;
           } else {
+            //根据倒计时改变提示语
+            if (speed == 35) {
+              that.setData({
+                modeTipsIndex2: '1',
+              })
+            } else if (speed == 20) {
+              that.setData({
+                modeTipsIndex2: '2',
+              })
+            } else if (speed == 5) {
+              that.setData({
+                modeTipsIndex2: '3',
+              })
+            }
+            
             speed -= 1;
             setTimeout(function () {
               drawFrame();
@@ -103,12 +168,17 @@ Page({
   stopSkinCare: function () {
     wx.redirectTo({
       url: '../end/end'
-    })
+    });
+    app.writeBLECharacteristicValue(app.globalData.deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
   },
   reuseSkinCare: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../onready/onready?mode=dayMode'
     })
+  },
+  onHide: function () {
+    var deviceId = wx.getStorageSync('deviceId') || '';
+    app.writeBLECharacteristicValue(deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580'); 
   }
 
 })

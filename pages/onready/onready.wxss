@@ -21,13 +21,23 @@ page{
 }
 .userinfo {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
-.userinfo .tips{
+.userinfo .switch-mode{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.userinfo image{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.userinfo text{
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
 }
 .device-icon{
   width: 220px;

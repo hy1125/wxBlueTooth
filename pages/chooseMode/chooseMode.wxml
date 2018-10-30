@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<image class='index-bg' src='../img/indexBg.png'></image>
+<view class="container">
+  <view class="userinfo">
+    <view>
+      <open-data class="userinfo-avatar" type="userAvatarUrl" mode="cover"></open-data>
+      <open-data  class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
+    </view>
+    <text wx:if="{{isBluetoothConnection}}" class="tips">已连接设备</text>
+    <text wx:else class="tips" bindtap='bindDevice'>未连接设备</text>
+  </view>
+  <image class='device-icon' src='../img/device.png'></image>
+</view>
+  <view class="usermotto">
+    <button class="btn modeBtn" data-mode='dayMode' bindtap='ready'><image src='../img/dayMode.png'></image>日间护肤模式</button>
+    <button class="btn modeBtn" data-mode='nightMode' bindtap='ready'><image src='../img/nightMode.png'></image>夜间护肤模式</button>
+  </view>
+

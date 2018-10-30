@@ -14,6 +14,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+/**
+ * 16进制转2进制
+ * parseInt("FFE0",16).toString(2)
+ */
+
 module.exports = {
   formatTime: formatTime
 }

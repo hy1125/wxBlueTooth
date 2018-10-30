@@ -8,12 +8,13 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.98",
-	"appid": "wx4d856df734340bcc",
-	"projectname": "wxBlueTooth",
+	"appid": "wxe0f7c9c4a0323d6d",
+	"projectname": "wxBT",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

@@ -1,42 +1,20 @@
-// pages/my/my.js
-const app = getApp()
+// pages/clause/clause.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    typeClause: "1"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-  },
-
-  checkVersion: function(){
-    wx.showModal({
-      title: '温馨提示',
-      content: '当前已是最新版本',
-      showCancel: false,
-      success: function (res) {}
-    })
-  },
-  mineItem1: function(){
-    wx.showModal({
-      title: '提示',
-      content: '正在努力地开发中，敬请期待',
-      showCancel: false,
-      success: function (res) {}
-    })
-  },
-  mineItem2: function(){
-    wx.navigateTo({
-      url: '../registerProduct/registerProduct'
+    var that = this;
+    that.setData({
+      typeClause: options.typeClause
     });
   },
 

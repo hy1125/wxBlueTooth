@@ -1,17 +1,22 @@
 <!--index.wxml-->
-<image class='index-bg' src='../img/indexBg.png'></image>
+<image mode='widthFix' class='index-bg' src='../img/userInfoBg.png'></image>
 <view class="container">
   <view class="userinfo">
     <view>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <open-data class="userinfo-avatar" type="userAvatarUrl" mode="cover"></open-data>
+      <open-data  class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
     </view>
-    <text class="tips" bindtap='bindDevice'>未连接设备</text>
+    <text wx:if="{{isBluetoothConnection}}" class="tips">已连接设备</text>
+    <text wx:else class="tips">未连接设备</text>
   </view>
-  <image class='device-icon' src='../img/device.png'></image>
+  <image class='index-icon device-icon' src='../img/icon.png'></image>
+  <image bindtap='ready' class='device-icon' src='../img/enterDevice.png'></image>
 </view>
-  <view class="usermotto">
-    <button class="btn modeBtn" data-mode='dayMode' bindtap='ready'><image src='../img/dayMode.png'></image>日间护肤模式</button>
-    <button class="btn modeBtn" data-mode='nightMode' bindtap='ready'><image src='../img/nightMode.png'></image>夜间护肤模式</button>
-  </view>
+  <!-- <view class="usermotto">
+    <view class='explain'>
+      <image mode="widthFix" src='../img/explain.png'></image>
+      <text class='explainTitle'>面膜仪小程序使用指导</text>
+      <text>扫二维码打开面膜仪小程序，按照正确使用流程即可开启对应面膜模式，体验全新护理模式。</text>
+    </view>
+  </view> -->
 

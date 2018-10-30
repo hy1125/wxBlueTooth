@@ -6,7 +6,8 @@
       <image class='search-icon' src='../img/search.png'></image>
     </view>
     <text class='pair-tips'>正在搜索设备...</text>
-    <text>打开手机蓝牙，请将设备开启并靠近手机</text>
+    <text>打开手机蓝牙和系统定位服务</text>
+    <text>请将设备开启并靠近手机</text>
     <image class='guide-icon' bindtap='showGuide' src='../img/guide.png'></image>
   </view>
 </view>

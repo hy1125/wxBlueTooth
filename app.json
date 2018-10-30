@@ -1,15 +1,16 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/demo/demo",
     "pages/pair/pair",
     "pages/nightMode/nightMode",
     "pages/end/end",
     "pages/onready/onready",
-    "pages/shopping/shopping",
     "pages/my/my",
-    "pages/dayMode/dayMode"
+    "pages/dayMode/dayMode",
+    "pages/clause/clause",
+    "pages/registerProduct/registerProduct",
+    "pages/chooseMode/chooseMode",
+    "pages/lowBattery/lowBattery"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,12 +27,6 @@
         "iconPath": "pages/img/index.png",
         "selectedIconPath": "pages/img/index-active.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/shopping/shopping",
-        "iconPath": "pages/img/shopping.png",
-        "selectedIconPath": "pages/img/shopping-active.png",
-        "text": "商城"
       },
       {
         "pagePath": "pages/my/my",

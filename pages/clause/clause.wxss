@@ -1,0 +1,5 @@
+/* pages/clause/clause.wxss */
+.content{
+  padding: 20rpx;
+  font-size: 30rpx;
+}

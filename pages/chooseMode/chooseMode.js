@@ -7,34 +7,41 @@ Page({
     // isBluetoothConnection: false,
     isBluetoothConnection: false
   },
-  
+
   onLoad: function (options) {
     var that = this;
     // this.setData({ isBluetoothConnection: wx.getStorageSync('isConnected') || false});
   },
-  // bindDevice: function () {
-  //   wx.navigateTo({
-  //     url: '../pair/pair?mode=bindDevice'
-  //   })
-  // },
-  pair:function(){
+  bindDevice: function () {
+    wx.navigateTo({
+      url: '../pair/pair?mode=bindDevice'
+    })
+  },
+  pair: function () {
     wx.redirectTo({
       url: '../pair/pair'
     })
   },
-  ready:function(e){
+  ready: function (e) {
     var that = this;
-    if (that.data.isBluetoothConnection){
+    var mode = e.currentTarget.dataset.mode;
+
+    if (mode == "dayMode") {
+      wx.setStorageSync('modeType', "dayMode");
+    } else if (mode == "nightMode") {
+      wx.setStorageSync('modeType', "nightMode");
+    }
+    if (that.data.isBluetoothConnection) {
       wx.redirectTo({
-        url: '../chooseMode/chooseMode'
+        url: '../onready/onready?mode=' + mode
       });
-    }else{
+    } else {
       wx.redirectTo({
-        url: '../pair/pair'
+        url: '../pair/pair?mode=' + mode
       })
     }
   },
-  onShow: function(){
+  onShow: function () {
     console.log("index==onShow方法", wx.getStorageSync('isConnected') || false);
     this.setData({ isBluetoothConnection: wx.getStorageSync('isConnected') || false });
   }

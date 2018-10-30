@@ -1,0 +1,39 @@
+/* pages/lowBattery/lowBattery.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: #f057b4;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.lowBattery{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.lowBattery>image{
+  width: 100%;
+}
+.lowBattery .lowBattery-tips{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40rpx;
+  font-size: 30rpx;
+}
+.btn{
+  border: 1px solid #fff;
+  background: transparent;
+  margin-top: 60rpx;
+}

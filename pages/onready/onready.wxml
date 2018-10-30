@@ -2,14 +2,19 @@
 <image class='index-bg' src='../img/indexBg.png'></image>
 <view class='container'>
   <view class="userinfo">
+    <view wx:if="{{!isDisabled}}" class='switch-mode' bindtap='switchMode'>
+      <image src='../img/switchIcon.png'></image>
+      <text>切换护肤模式</text>
+    </view>
+    <view wx:else></view>
     <text class="tips">已连接设备</text>
   </view>
   <view class='device-icon'>
     <image src='../img/device.png'></image>
     <text class='count-down'>{{count}}</text>
   </view>
-  <text class='ready-tips'>护肤前请将面膜放置在YOYO上并扣好</text>
+  <text class='ready-tips'>护肤前请将面膜放置在UFO上并扣好</text>
 </view>
 <view class="usermotto">
-  <button class="btn" bindtap='startSkinCare' disabled='{{isDisabled}}'>启动护肤</button>
+  <button class="btn" bindtap='startSkinCare' disabled='{{isDisabled}}'>{{btnType}}</button>
 </view>

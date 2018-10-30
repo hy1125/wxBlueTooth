@@ -37,8 +37,65 @@ page{
   height: 160rpx;
   margin: 20rpx;
   border-radius: 50%;
+  overflow: hidden;
 }
 .userinfo-nickname {
   color: #fff;
   font-size: 34rpx;
+}
+.list-block{
+  width: 100%;
+  height: auto;
+  padding: 500rpx 20rpx 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.list-block .list-item{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #e6e6e6;
+  font-size: 30rpx;
+  position: relative;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-block .list-item>image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.mine-block{
+  width: 85%;
+  height: 190rpx;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  position: absolute;
+  top: 290rpx;
+  left: 7.5%;
+  z-index: 9999;
+  border-radius: 20rpx;
+  -webkit-border-radius: 20rpx;
+  box-shadow: 0px 0px 3px 1px #e6e6e6;
+  -webkit-box-shadow: 0px 0px 3px 1px #e6e6e6;
+}
+.mine-item{
+  width: 33%;
+  height: 190rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 15rpx;
+}
+.mine-item>image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.mine-item>text{
+  font-size: 27rpx;
 }
