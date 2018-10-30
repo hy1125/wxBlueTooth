@@ -39,8 +39,8 @@ Page({
           success: function (res) {
             console.log("点击确认");
             // wx.navigateBack();
-            wx.redirectTo({
-              url: '../pair/pair'
+            wx.switchTab({
+              url: '../index/index'
             });
           }
         })

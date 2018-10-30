@@ -2,12 +2,14 @@
 <image class='index-bg' src='../img/indexBg.png'></image>
 <view class="container">
   <view class="userinfo">
-    <view>
+    <view class='switch-mode' bindtap='toIndex'>
+      <image src='../img/toIndex.png'></image>
+      <text>首页</text>
+    </view>
+    <!-- <view>
       <open-data class="userinfo-avatar" type="userAvatarUrl" mode="cover"></open-data>
       <open-data  class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
-    </view>
-    <text wx:if="{{isBluetoothConnection}}" class="tips">已连接设备</text>
-    <text wx:else class="tips" bindtap='bindDevice'>未连接设备</text>
+    </view> -->
   </view>
   <image class='device-icon' src='../img/device.png'></image>
 </view>

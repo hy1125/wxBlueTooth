@@ -26,6 +26,20 @@ page{
   align-items: center;
   width: 100%;
 }
+.userinfo .switch-mode{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.switch-mode image{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.switch-mode text{
+  color: #fff;
+  font-size: 14px;
+}
 .userinfo>view{
   display: flex;
   display: -webkit-flex;

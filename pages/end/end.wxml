@@ -2,4 +2,7 @@
 <view class='content'>
   <image src='../img/end.png'></image>
   <text>护肤完成</text>
+  <view class="usermotto">
+    <button class="btn" bindtap='toIndex'>返回首页</button>
+  </view>
 </view>

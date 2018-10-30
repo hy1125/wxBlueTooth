@@ -12,11 +12,6 @@ Page({
     var that = this;
     // this.setData({ isBluetoothConnection: wx.getStorageSync('isConnected') || false});
   },
-  // bindDevice: function () {
-  //   wx.navigateTo({
-  //     url: '../pair/pair?mode=bindDevice'
-  //   })
-  // },
   pair:function(){
     wx.redirectTo({
       url: '../pair/pair'
@@ -29,7 +24,7 @@ Page({
         url: '../chooseMode/chooseMode'
       });
     }else{
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../pair/pair'
       })
     }
