@@ -1,5 +1,6 @@
 // pages/ready/onready.js
 const app = getApp()
+var timer
 Page({
 
   /**
@@ -35,7 +36,7 @@ Page({
     }
   },
   switchMode: function(){
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../chooseMode/chooseMode'
     });
   },
@@ -80,11 +81,11 @@ Page({
             count: ""
           });
           if (that.data.modeType == "nightMode") {
-            wx.redirectTo({
+            wx.reLaunch({
               url: '../nightMode/nightMode'
             });
           } else {
-            wx.redirectTo({
+            wx.reLaunch({
               url: '../dayMode/dayMode'
             });
           }
@@ -94,7 +95,7 @@ Page({
             count: time
           });
           time -= 1;
-          setTimeout(function () {
+          timer = setTimeout(function () {
             countDown();
           }, 1000);
         }
@@ -120,9 +121,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log("onHide=====onReady");
-    var deviceId = wx.getStorageSync('deviceId') || '';
-    app.writeBLECharacteristicValue(deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
+    var that = this;
+    if (that.data.isDisabled){
+      console.log("onHide=====onReady");
+      var deviceId = wx.getStorageSync('deviceId') || '';
+      app.writeBLECharacteristicValue(deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
+
+      clearTimeout(timer);
+    }
   },
 
   /**

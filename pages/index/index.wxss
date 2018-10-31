@@ -43,7 +43,7 @@ page{
 .index-icon{
   width: 200px;
   height: 200px;
-  margin: 30rpx auto 60rpx;
+  margin: 30rpx auto 30rpx;
 }
 
 .userinfo-avatar {

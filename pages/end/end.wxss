@@ -11,3 +11,20 @@
   display: block;
   text-align: center;
 }
+.usermotto {
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.usermotto .btn{
+  margin: 0 20rpx;
+  border: 1px solid;
+  color: #f04aaf;
+  background: transparent;
+}
