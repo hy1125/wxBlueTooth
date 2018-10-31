@@ -1,5 +1,6 @@
 // pages/ready/onready.js
 const app = getApp()
+var timer
 Page({
 
   /**
@@ -94,7 +95,7 @@ Page({
             count: time
           });
           time -= 1;
-          setTimeout(function () {
+          timer = setTimeout(function () {
             countDown();
           }, 1000);
         }
@@ -125,6 +126,8 @@ Page({
       console.log("onHide=====onReady");
       var deviceId = wx.getStorageSync('deviceId') || '';
       app.writeBLECharacteristicValue(deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
+
+      clearTimeout(timer);
     }
   },
 
