@@ -16,7 +16,9 @@ Page({
 
   },
   stopSkinCare: function () {
-    app.writeBLECharacteristicValue(app.globalData.deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
+    var deviceId = wx.getStorageSync('deviceId') || '';
+    app.writeBLECharacteristicValue(deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
+
   },
 
   /**

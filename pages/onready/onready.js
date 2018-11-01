@@ -49,6 +49,7 @@ Page({
         bleConnect: res.connected
       });
       if (!res.connected) {
+        clearTimeout(timer);
         wx.showModal({
           title: '提示',
           content: '设备蓝牙连接已断开，请重新连接蓝牙',
@@ -67,9 +68,6 @@ Page({
     });
     console.log("===isConnected===>", wx.getStorageSync('isConnected') || false);
     if (wx.getStorageSync('isConnected') || false){
-      console.log("===deviceId===>", that.data.deviceId);
-      console.log("===serviceId===>", app.globalData.serviceId);
-      console.log("===characteristicId===>", app.globalData.characteristicId);
       if (that.data.modeType == "nightMode") {
         app.writeBLECharacteristicValue(that.data.deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A582');
       } else {
