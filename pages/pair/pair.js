@@ -129,7 +129,17 @@ Page({
       success: function (res) {
         console.log("获取处于连接状态的设备", res);
         let deviceId = wx.getStorageSync("deviceId") || "";
-        var flag = true, conDevList = [deviceId];
+        var flag = false, conDevList = [],devices = res['devices'],index=0;
+        devices.forEach(function (value, index, array) {
+          if (value['name'].indexOf('UFOO') != -1) {
+            // 如果存在包含UFOO字段的设备
+            flag = true;
+            index += 1;
+            conDevList.push(value['deviceId']);
+            deviceId = value['deviceId'];
+            return;
+          }
+        });
         console.log("conDevList====", conDevList);
         // var devices = res['devices'],
         //   flag = false,
@@ -146,7 +156,7 @@ Page({
         //     return;
         //   }
         // });
-        if (deviceId) {
+        if (flag) {
           that.setData({ connectDeviceIndex:0});
           that.loopConnect(conDevList);
         } else {
@@ -224,7 +234,7 @@ Page({
 
           //获取设备主服务
           app.getService(that.deviceId, app.globalData.serviceId,function(){
-            wx.redirectTo({
+            wx.navigateTo({
               url: '../chooseMode/chooseMode'
             });
           });
@@ -269,7 +279,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if (wx.getStorageSync('isConnected') || false) {
+      wx.switchTab({
+        url: '../index/index',
+      })
+    }
   },
 
   /**

@@ -10,6 +10,8 @@ Page({
 
   onLoad: function (options) {
     var that = this;
+    wx.removeStorageSync('isDisabled');
+    wx.removeStorageSync('timer');
     // this.setData({ isBluetoothConnection: wx.getStorageSync('isConnected') || false});
   },
   toIndex: function () {
@@ -18,7 +20,7 @@ Page({
     })
   },
   pair: function () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../pair/pair'
     })
   },
@@ -32,11 +34,11 @@ Page({
       wx.setStorageSync('modeType', "nightMode");
     }
     if (that.data.isBluetoothConnection) {
-      wx.reLaunch({
+      wx.navigateTo({
         url: '../onready/onready?mode=' + mode
       });
     } else {
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../pair/pair?mode=' + mode
       })
     }
@@ -44,5 +46,11 @@ Page({
   onShow: function () {
     console.log("index==onShow方法", wx.getStorageSync('isConnected') || false);
     this.setData({ isBluetoothConnection: wx.getStorageSync('isConnected') || false });
+
+    if (wx.getStorageSync('isStarted') || false) {
+      var deviceId = wx.getStorageSync('deviceId') || '';
+      app.writeBLECharacteristicValue(deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
+      clearTimeout(wx.getStorageSync('timer') || null);
+    }
   }
 })

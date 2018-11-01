@@ -13,14 +13,14 @@ Page({
     // this.setData({ isBluetoothConnection: wx.getStorageSync('isConnected') || false});
   },
   pair:function(){
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../pair/pair'
     })
   },
   ready:function(e){
     var that = this;
     if (that.data.isBluetoothConnection){
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../chooseMode/chooseMode'
       });
     }else{

@@ -43,6 +43,7 @@ Page({
   startSkinCare: function(){
     var time = 10;
     var that = this;
+    wx.setStorageSync('isStarted', true);
     wx.onBLEConnectionStateChange(function (res) {
       console.log("监听蓝牙连接", res);
       that.setData({
@@ -98,6 +99,7 @@ Page({
           timer = setTimeout(function () {
             countDown();
           }, 1000);
+          wx.setStorageSync('timer', timer);
         }
       }());
     }

@@ -46,7 +46,7 @@ App({
       value: buffer,//写入数据
       success: function (res) {
         console.log('发送数据:', res);
-        if (hexStr == "A580"){
+        if (hexStr == "A580" && !(wx.getStorageSync('isStarted') || false)){
           wx.closeBLEConnection({
             deviceId: wx.getStorageSync('deviceId') || '',
             success: function (res) {
@@ -183,6 +183,8 @@ App({
     wx.removeStorageSync('deviceId');
     wx.removeStorageSync('isConnected');
     wx.removeStorageSync('modeType');
+    wx.removeStorageSync('isStarted');
+    wx.removeStorageSync('timer');
 
     // 设置屏幕常亮
     wx.setKeepScreenOn({
@@ -244,7 +246,9 @@ App({
     var that = this;
     console.log("==========================", wx.getStorageSync('deviceId') || '哈哈哈');
     // wx.removeStorageSync('deviceId');
-    wx.removeStorageSync('isConnected');
+    // wx.removeStorageSync('isConnected');
+    wx.removeStorageSync('isStarted');
+    wx.removeStorageSync('timer');
   },
   onShow: function(){
     if (this.getPlatform() == 'ios'){
