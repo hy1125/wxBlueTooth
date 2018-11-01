@@ -60,23 +60,6 @@ App({
       }
     });
 
-    // 监听蓝牙连接
-    // wx.onBLEConnectionStateChange(function (res) {
-    //   console.log("监听蓝牙连接", res);
-    //   if (!res.connected) {
-    //     wx.showModal({
-    //       title: '提示',
-    //       content: '设备蓝牙连接已断开，请重新连接蓝牙',
-    //       showCancel: false,
-    //       success: function (res) {
-    //         wx.redirectTo({
-    //           url: '../pair/pair'
-    //         });
-    //       }
-    //     });
-    //     return;
-    //   }
-    // });
   },
 
   /**开启notify */
@@ -112,8 +95,7 @@ App({
               content: '面膜仪电量过底，请尽快充电！！',
               showCancel: false,
               success: function (res) {
-                // console.log("点击确认");
-                wx.redirectTo({
+                wx.reLaunch({
                   url: '../lowBattery/lowBattery'
                 });
               }
@@ -244,7 +226,7 @@ App({
     var that = this;
     console.log("==========================", wx.getStorageSync('deviceId') || '哈哈哈');
     // wx.removeStorageSync('deviceId');
-    wx.removeStorageSync('isConnected');
+    // wx.removeStorageSync('isConnected');
   },
   onShow: function(){
     if (this.getPlatform() == 'ios'){
