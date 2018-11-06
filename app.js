@@ -1,4 +1,5 @@
 //app.js
+var timerBLE
 App({
   /** 将String类型转化为ArrayBuffer */
   stringToArrayBuffer: function (str) {
@@ -47,12 +48,12 @@ App({
       success: function (res) {
         console.log('发送数据:', res);
         if (hexStr == "A580"){
-          wx.closeBLEConnection({
-            deviceId: wx.getStorageSync('deviceId') || '',
-            success: function (res) {
-              console.log("已断开蓝牙", res);
-            }
-          })
+          // wx.closeBLEConnection({
+          //   deviceId: wx.getStorageSync('deviceId') || '',
+          //   success: function (res) {
+          //     console.log("已断开蓝牙", res);
+          //   }
+          // })
         }
       },
       fail(res){
@@ -90,16 +91,9 @@ App({
         wx.onBLECharacteristicValueChange(function (res) {
           var hex = Array.prototype.map.call(new Uint8Array(res.value), x => ('00' + x.toString(16)).slice(-2)).join('');
           if(parseInt(hex,16)<25){
-            wx.showModal({
-              title: '警告',
-              content: '面膜仪电量过底，请尽快充电！！',
-              showCancel: false,
-              success: function (res) {
-                wx.reLaunch({
-                  url: '../lowBattery/lowBattery'
-                });
-              }
-            })
+            wx.reLaunch({
+              url: '../lowBattery/lowBattery'
+            });
           }
             console.log('特征值变化16进制值为====' + hex + '=====10进制值为---》' + parseInt(hex, 16));
         });
@@ -227,8 +221,17 @@ App({
     console.log("==========================", wx.getStorageSync('deviceId') || '哈哈哈');
     // wx.removeStorageSync('deviceId');
     // wx.removeStorageSync('isConnected');
+    timerBLE = setTimeout(function(){
+      wx.closeBLEConnection({
+        deviceId: wx.getStorageSync('deviceId') || '',
+        success: function (res) {
+          console.log("已断开蓝牙", res);
+        }
+      });
+    },10000);
   },
   onShow: function(){
+    clearTimeout(timerBLE);
     if (this.getPlatform() == 'ios'){
       if (wx.getStorageSync('deviceId')) {
         wx.showModal({

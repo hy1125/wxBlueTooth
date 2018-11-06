@@ -13,12 +13,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var deviceId = wx.getStorageSync('deviceId') || '';
+    app.writeBLECharacteristicValue(deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A583');
+    wx.removeStorageSync('isConnected');
   },
   stopSkinCare: function () {
-    var deviceId = wx.getStorageSync('deviceId') || '';
-    app.writeBLECharacteristicValue(deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
-
+    wx.switchTab({
+      url: '../index/index'
+    });
   },
 
   /**
@@ -32,7 +34,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.onBLEConnectionStateChange(function (res) {
+      console.log("监听蓝牙连接", res);
+      if (!res.connected) {
+        wx.stopBluetoothDevicesDiscovery({
+          success: function (res) {
+          }
+        })
+        
+        return;
+      }
+    });
   },
 
   /**
