@@ -43,6 +43,7 @@ Page({
   startSkinCare: function(){
     var time = 10;
     var that = this;
+    
     wx.onBLEConnectionStateChange(function (res) {
       console.log("监听蓝牙连接", res);
       that.setData({
@@ -76,17 +77,19 @@ Page({
       (function countDown() {
         if (time < 1) {
           that.setData({
-            count: ""
+            count: "0"
           });
-          if (that.data.modeType == "nightMode") {
-            wx.reLaunch({
-              url: '../nightMode/nightMode'
-            });
-          } else {
-            wx.reLaunch({
-              url: '../dayMode/dayMode'
-            });
-          }
+          setTimeout(function () {
+            if (that.data.modeType == "nightMode") {
+              wx.reLaunch({
+                url: '../nightMode/nightMode'
+              });
+            } else {
+              wx.reLaunch({
+                url: '../dayMode/dayMode'
+              });
+            }
+          }, 2000);
           return;
         } else {
           that.setData({
@@ -124,7 +127,15 @@ Page({
       console.log("onHide=====onReady");
       var deviceId = wx.getStorageSync('deviceId') || '';
       app.writeBLECharacteristicValue(deviceId, app.globalData.serviceId, app.globalData.characteristicId, 'A580');
-
+      
+      app.getService(deviceId, app.globalData.serviceId, function () {
+        wx.closeBLEConnection({
+          deviceId: wx.getStorageSync('deviceId') || '',
+          success: function (res) {
+            console.log("已断开蓝牙", res);
+          }
+        });
+      });
       clearTimeout(timer);
     }
   },

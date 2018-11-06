@@ -25,6 +25,12 @@ Page({
   ready: function (e) {
     var that = this;
     var mode = e.currentTarget.dataset.mode;
+    var deviceId = wx.getStorageSync('deviceId') || '';
+    //获取设备电量服务
+    app.getService(deviceId, app.globalData.batteryServiceId, function () {
+      //读取数据
+      app.readBLECharacteristicValue(deviceId);
+    });
 
     if (mode == "dayMode") {
       wx.setStorageSync('modeType', "dayMode");

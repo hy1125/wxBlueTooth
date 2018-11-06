@@ -230,7 +230,7 @@ Page({
           });
 
           //获取设备电量服务
-          app.getService(that.deviceId, app.globalData.batteryServiceId,function(){
+          app.getService(that.deviceId, app.globalData.batteryServiceId, function () {
             //读取数据
             app.readBLECharacteristicValue(that.deviceId);
           });
